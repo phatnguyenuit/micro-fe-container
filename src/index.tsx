@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'container',
+  seed: 'container',
+});
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StylesProvider injectFirst generateClassName={generateClassName}>
+      >
+      <App />
+    </StylesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

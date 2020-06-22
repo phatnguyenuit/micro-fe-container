@@ -1,63 +1,31 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import clsx from 'clsx';
 
-import logo from './logo.svg';
-import './App.css';
-import MicroApp from './MicroApp';
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-const MICRO_APPS = [
-  {
-    host: 'http://localhost:4001',
-    name: 'app-child-1',
-    path: '/app-1',
-  },
-  {
-    host: 'http://localhost:4002',
-    name: 'app-child-2',
-    path: '/app-2',
-  },
-];
+import { BrowserRouter } from 'react-router-dom';
+
+import useStyles from './App.styles';
+import theme from './theme';
+import Topbar from './components/Topbar';
+import Routes from './routes';
 
 function App() {
+  const classes = useStyles();
   return (
-    <BrowserRouter>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <span>Micro Apps</span>
-        </header>
-      </div>
-      <ul>
-        <li>
-          <NavLink to={'/'}>Home</NavLink>
-        </li>
-        {MICRO_APPS.map(({ path, name, host }) => (
-          <li key={`${name}-link`}>
-            <NavLink to={path}>{name}</NavLink>
-          </li>
-        ))}
-      </ul>
-      <Switch>
-        <Route path="/" exact render={() => 'Container Home'} />
-        {MICRO_APPS.map(({ path, name, host }) => (
-          <Route
-            key={`${name}-route`}
-            path={path}
-            render={() => (
-              <MicroApp
-                key={name}
-                name={name}
-                host={host}
-                window={window}
-                document={document}
-                basename={path}
-              />
-            )}
-          />
-        ))}
-        <Route path="*" render={() => 'Not Found'} />
-      </Switch>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <BrowserRouter>
+        <div className={classes.root}>
+          <Topbar />
+          <main className={clsx(classes.content)}>
+            <div className={classes.drawerHeader} />
+            <Routes />
+          </main>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
