@@ -1,4 +1,4 @@
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, makeStyles } from '@material-ui/core';
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -15,11 +15,7 @@ export const styles = (theme: Theme) =>
     },
     content: {
       flexGrow: 1,
-      paddingLeft: theme.spacing(4),
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
+      paddingLeft: theme.spacing(2),
     },
   });
 

@@ -3,15 +3,17 @@ import clsx from 'clsx';
 
 import { Link } from 'react-router-dom';
 
-import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  Grid,
+  Menu,
+  MenuItem,
+} from '@material-ui/core';
 
-import MoreIcon from '@material-ui/icons/MoreVert';
+// import MoreIcon from '@material-ui/icons/MoreVert';
 
 import useStyles from './styles';
 import pkg from '../../../package.json';
@@ -57,7 +59,8 @@ export const TopbarComponent: React.FC = () => {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <MoreIcon />
+              {/* <MoreIcon /> */}
+              MoreIcon
             </IconButton>
             <Menu
               id="simple-menu"

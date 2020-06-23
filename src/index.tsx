@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-  StylesProvider,
-  createGenerateClassName,
-} from '@material-ui/core/styles';
+import { StylesProvider, createGenerateClassName } from '@material-ui/core';
 
 import './index.css';
 import App from './App';
@@ -16,12 +13,10 @@ const generateClassName = createGenerateClassName({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <StylesProvider injectFirst generateClassName={generateClassName}>
-      >
-      <App />
-    </StylesProvider>
-  </React.StrictMode>,
+  <StylesProvider injectFirst generateClassName={generateClassName}>
+    >
+    <App />
+  </StylesProvider>,
   document.getElementById('root')
 );
 
