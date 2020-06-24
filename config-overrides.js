@@ -6,6 +6,7 @@ module.exports = {
       react: 'React',
       'react-dom': 'ReactDOM',
       '@material-ui/core': 'MaterialUI',
+      '@material-ui/icons': 'MuiIcons',
     };
     return config;
   },

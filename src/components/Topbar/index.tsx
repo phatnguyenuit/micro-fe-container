@@ -13,7 +13,7 @@ import {
   MenuItem,
 } from '@material-ui/core';
 
-// import MoreIcon from '@material-ui/icons/MoreVert';
+import { MoreVert as MoreVertIcon } from '@material-ui/icons';
 
 import useStyles from './styles';
 import pkg from '../../../package.json';
@@ -59,8 +59,7 @@ export const TopbarComponent: React.FC = () => {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              {/* <MoreIcon /> */}
-              MoreIcon
+              <MoreVertIcon />
             </IconButton>
             <Menu
               id="simple-menu"
